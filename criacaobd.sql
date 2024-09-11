@@ -1,3 +1,15 @@
+CREATE TABLE FUNCIONARIO (
+    CPF VARCHAR(11) PRIMARY KEY, -- Chave primária, identificando o funcionário
+    NOME VARCHAR(100) NOT NULL,
+    DEPARTAMENTO VARCHAR(100) NOT NULL,
+    IS_INSPETOR BOOLEAN NOT NULL, -- Indica se o funcionário é um inspetor ou não
+    COD_INSPETOR VARCHAR(11) NULL, -- Referência opcional para o inspetor responsável
+    PLANTAO BOOLEAN NOT NULL, -- Indica se o funcionário está de plantão
+    UNIQUE (CPF),
+    FOREIGN KEY (COD_INSPETOR) REFERENCES FUNCIONARIO(CPF) -- Relacionamento entre inspetores e funcionários
+);
+
+
 CREATE TABLE PREDIO (
     ID_PREDIO SERIAL PRIMARY KEY,
     ENDERECO VARCHAR(255) NOT NULL,
